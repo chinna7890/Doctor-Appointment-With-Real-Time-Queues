@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediQueueX - Signup</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .signup-container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    .role-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .role-buttons button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 25px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .role-buttons button:hover {
+      background-color: #0056b3;
+    }
+
+    .form-box {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .form-box.active {
+      display: block;
+    }
+
+    form label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background-color: #218838;
+    }
+
+    .footer-text {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-text a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h1>MediQueue</h1>
+    <p class="subtitle">Create your account</p>
+
+    <!-- Role Selector -->
+    <div class="role-buttons">
+      <button onclick="showForm('patient')"><i class="fa-solid fa-user-injured"></i> Patient</button>
+      <button onclick="showForm('staff')"><i class="fa-solid fa-user-tie"></i> Staff</button>
+    </div>
+
+    <!-- Patient Signup Form -->
+    <form id="patientForm" class="form-box">
+      <h2><i class="fa-solid fa-user-injured"></i> Patient Signup</h2>
+      <label>Name</label>
+      <input type="text" placeholder="Enter your name" required />
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required />
+
+      <label>Phone Number</label>
+      <input type="tel" placeholder="Enter phone number" required />
+
+      <label>Password</label>
+      <input type="password" placeholder="Create a password" required />
+
+      <button type="submit">Signup as Patient</button>
+    </form>
+
+    <!-- Staff Signup Form -->
+    <form id="staffForm" class="form-box">
+      <h2><i class="fa-solid fa-user-tie"></i> Staff Signup</h2>
+      <label>Name</label>
+      <input type="text" placeholder="Enter your name" required />
+
+      <label>Employee ID</label>
+      <input type="text" placeholder="Enter your Employee ID" required />
+
+      <label>Mobile Number</label>
+      <input type="tel" placeholder="Enter your phone number" required />
+
+      <label>Email ID</label>
+      <input type="email" placeholder="Enter your email" required />
+
+      <label>Password</label>
+      <input type="password" placeholder="Create a password" required />
+
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Confirm password" required />
+
+      <button type="submit">Signup as Staff</button>
+    </form>
+
+    <p class="footer-text">
+      Already have an account? <a href="login.html">Log In</a>
+    </p>
+  </div>
+  <script>
+  function showForm(role) {
+    document.getElementById('patientForm').classList.remove('active');
+    document.getElementById('staffForm').classList.remove('active');
+
+    if (role === 'patient') {
+      document.getElementById('patientForm').classList.add('active');
+    } else if (role === 'staff') {
+      document.getElementById('staffForm').classList.add('active');
+    }
+  }
+
+  // Utility to save to localStorage
+  function saveToStorage(key, user) {
+    const existing = JSON.parse(localStorage.getItem(key)) || [];
+    existing.push(user);
+    localStorage.setItem(key, JSON.stringify(existing));
+  }
+
+  // Check for duplicate email/ID
+  function isDuplicate(key, field, value) {
+    const users = JSON.parse(localStorage.getItem(key)) || [];
+    return users.some(user => user[field] === value);
+  }
+
+  // Patient Signup
+  const patientForm = document.getElementById("patientForm");
+  patientForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const inputs = patientForm.querySelectorAll("input");
+    const name = inputs[0].value.trim();
+    const email = inputs[1].value.trim();
+    const phone = inputs[2].value.trim();
+    const password = inputs[3].value.trim();
+
+    if (isDuplicate("patients", "email", email)) {
+      alert("A patient with this email already exists.");
+      return;
+    }
+
+    const patient = {
+      role: "patient",
+      name,
+      email,
+      phone,
+      password,
+    };
+
+    saveToStorage("patients", patient);
+    alert("Patient signup successful!");
+    window.location.href = "login.html";
+  });
+
+  // Staff Signup
+  const staffForm = document.getElementById("staffForm");
+  staffForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const inputs = staffForm.querySelectorAll("input");
+    const name = inputs[0].value.trim();
+    const empId = inputs[1].value.trim();
+    const phone = inputs[2].value.trim();
+    const email = inputs[3].value.trim();
+    const password = inputs[4].value.trim();
+    const confirm = inputs[5].value.trim();
+
+    if (password !== confirm) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    if (isDuplicate("staff", "email", email) || isDuplicate("staff", "empId", empId)) {
+      alert("A staff member with this email or ID already exists.");
+      return;
+    }
+
+    const staff = {
+      role: "staff",
+      name,
+      empId,
+      phone,
+      email,
+      password,
+    };
+
+    saveToStorage("staff", staff);
+    alert("Staff signup successful!");
+    window.location.href = "login.html";
+  });
+</script>
+
+</body>
+</html>

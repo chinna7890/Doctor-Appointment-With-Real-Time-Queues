@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Appointment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f9ff;
+      padding: 40px;
+    }
+
+    .appointment-form {
+      background: #fff;
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .appointment-form h2 {
+      margin-bottom: 20px;
+      color: #2d7bff;
+      text-align: center;
+    }
+
+    .appointment-form label {
+      display: block;
+      margin-bottom: 5px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .appointment-form input,
+    .appointment-form textarea,
+    .appointment-form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .appointment-form button {
+      background: #2d7bff;
+      color: #fff;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      margin-top: 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .appointment-form button:hover {
+      background-color: #1c5edb;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="appointment-form" onsubmit="submitForm(event)">
+    <h2>Book Appointment</h2>
+
+    <label for="doctor">Doctor</label>
+    <input type="text" id="doctor" name="doctor" readonly>
+
+    <label for="date">Appointment Date</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="time">Appointment Time</label>
+    <input type="time" id="time" name="time" required>
+
+    <label for="details">Extra Details (Optional)</label>
+    <textarea id="details" name="details" rows="4" placeholder="Any symptoms or concerns..."></textarea>
+
+    <button type="submit">Confirm Appointment</button>
+  </form>
+
+  <script>
+  // Get doctor name from query parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const doctorName = urlParams.get('doctor');
+  document.getElementById('doctor').value = doctorName || 'Not specified';
+
+  function submitForm(e) {
+    e.preventDefault();
+    
+    const doctor = document.getElementById('doctor').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const details = document.getElementById('details').value;
+
+    // Build appointment object
+    const appointment = {
+      doctor,
+      date,
+      time,
+      details,
+      bookedAt: new Date().toISOString()
+    };
+
+    // Get existing appointments or create new list
+    let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+    // Add this appointment
+    appointments.push(appointment);
+
+    // Save back to localStorage
+    localStorage.setItem('appointments', JSON.stringify(appointments));
+
+    alert(`✅ Appointment booked with ${doctor} on ${date} at ${time}.\nDetails: ${details}`);
+
+    // Optionally clear form or redirect
+    e.target.reset();
+  }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Notifications</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(145deg, #d1e4f6, #f1f9ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      padding: 30px;
+      background: #e0ecf7;
+      border-radius: 20px;
+      box-shadow: 10px 10px 30px #c6d5e3, -10px -10px 30px #ffffff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .header h2 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+    }
+
+    .header i {
+      font-size: 1.6rem;
+      color: #3498db;
+    }
+
+    .notification {
+      background: #f1f9ff;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: inset 2px 2px 6px #d1dce5, inset -2px -2px 6px #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .notification:hover {
+      transform: scale(1.02);
+      box-shadow: 4px 4px 12px #cbd6e2, -4px -4px 12px #ffffff;
+    }
+
+    .notification p {
+      margin: 0;
+      font-size: 1rem;
+      color: #34495e;
+    }
+
+    .timestamp {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #7f8c8d;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .header h2 {
+        font-size: 1.4rem;
+      }
+
+      .notification {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h2>🔔 Notifications</h2>
+      <i class="fas fa-bell"></i>
+    </div>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointment Confirmation</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0faff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h2 {
+      color: #2d7bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Appointment Confirmed ✅</h2>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const doctor = params.get("doctor");
+    const date = params.get("date");
+    const time = params.get("time");
+
+    const message = `Your appointment with ${doctor} has been confirmed on ${date} at ${time}.`;
+    document.getElementById("message").textContent = message;
+  </script>
+</body>
+</html>
+
+    
+  </div>
+
+</body>
+</html>

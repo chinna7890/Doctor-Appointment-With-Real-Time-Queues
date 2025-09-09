@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Queue</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+    body { background: linear-gradient(to right, #f0f4fc, #f7f9fb); padding: 30px; color: #333; }
+    a { color: #2c73d2; text-decoration: none; margin-bottom: 20px; display: inline-block; }
+    .container { display: flex; gap: 30px; flex-wrap: wrap; }
+
+    .card { background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    .live-queue { flex: 2; }
+    .live-queue h2 { font-size: 24px; margin-bottom: 10px; }
+    .status { font-size: 14px; color: green; display: flex; align-items: center; }
+    .status::before {
+      content: ""; display: inline-block; width: 10px; height: 10px;
+      background: green; border-radius: 50%; margin-right: 6px;
+    }
+
+    .queue-item {
+      border-radius: 10px; padding: 15px; margin: 10px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #f4f4f4;
+    }
+
+    .left { display: flex; flex-direction: column; }
+    .left span { font-weight: 600; }
+    .right { text-align: right; font-size: 14px; }
+    .status-tag {
+      padding: 4px 8px; border-radius: 8px;
+      font-weight: 600; font-size: 12px;
+    }
+
+    .in-consultation { background-color: #b2f0c0; color: #056c3d; }
+    .called-in { background-color: #ffebad; color: #a87f00; }
+    .waiting { background-color: #e2e2e2; color: #555; }
+
+    .sidebar { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+
+    .stats-box h4, .time-box h4 { margin-bottom: 10px; font-size: 16px; }
+    .stats { display: flex; flex-direction: column; gap: 10px; }
+    .stats div {
+      background: #f0f4fc; padding: 10px;
+      border-radius: 8px; font-weight: 600; font-size: 14px;
+    }
+
+    .time-box h3 { font-size: 24px; color: #2c73d2; }
+    .time-box p { font-size: 14px; color: #555; }
+  </style>
+</head>
+<body>
+  <a href="index.html">&larr; Back to Home</a>
+
+  <div class="container">
+    <div class="card live-queue">
+      <h2>Live Queue</h2>
+      <div class="status">Live Updates</div>
+      <div id="queueList"></div>
+    </div>
+
+    <div class="sidebar">
+      <div class="card stats-box">
+        <h4>Queue Stats</h4>
+        <div class="stats">
+          <div id="totalWaiting">Total Waiting: 0</div>
+          <div id="inConsultation">In Consultation: 0</div>
+          <div id="avgWaitTime">Avg Wait Time: 0m</div>
+        </div>
+      </div>
+
+      <div class="queue-box">
+  <h3>Total Waiting: <span id="totalWaiting">0</span></h3>
+  <h3>In Consultation: <span id="inConsultation">0</span></h3>
+  <h3>Avg Wait Time: <span id="avgWaitTime">0m</span></h3>
+</div>
+
+<div class="time-box">
+  <h2 id="currentTime">10:30 AM</h2>
+  <p id="currentDate">Thursday, July 31</p>
+</div>
+
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    function updateLiveQueue() {
+      const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+
+      const todayStr = new Date().toISOString().split("T")[0]; // Format: "YYYY-MM-DD"
+      const todaysAppointments = appointments.filter(a => a.date === todayStr);
+
+      const totalWaiting = todaysAppointments.length;
+      const inConsultation = 0; // Update if you implement consultation tracking
+
+      const avgWaitTime = totalWaiting > 0 ? Math.round(totalWaiting * 5) : 0; // Assume 5 min per patient
+
+      document.getElementById("totalWaiting").textContent = totalWaiting;
+      document.getElementById("inConsultation").textContent = inConsultation;
+      document.getElementById("avgWaitTime").textContent = avgWaitTime + "m";
+    }
+
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const dateString = now.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+
+      document.getElementById("currentTime").textContent = timeString;
+      document.getElementById("currentDate").textContent = dateString;
+    }
+
+    // Initial update on page load
+    updateLiveQueue();
+    updateTime();
+
+    // Auto-refresh every 10 seconds
+    setInterval(() => {
+      updateLiveQueue();
+      updateTime();
+    }, 10000);
+  });
+</script>
+
+</body>
+</html>

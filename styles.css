@@ -1,0 +1,415 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f8ff;
+  color: #111;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo h2 {
+  color: #003366;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.nav i {
+  font-size: 18px;
+  color: #444;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 30px;
+  background: #f0f6ff;
+}
+
+.hero h1 {
+  font-size: 36px;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.stats-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  width: 200px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card i {
+  font-size: 30px;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.card h2 {
+  font-size: 24px;
+  color: #111;
+  margin-bottom: 5px;
+}
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Color Themes */
+.card.blue i {
+  background-color: #2563eb;
+}
+.card.green i {
+  background-color: #16a34a;
+}
+.card.yellow i {
+  background-color: #f59e0b;
+}
+.card.purple i {
+  background-color: #8b5cf6;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f8ff;
+  color: #333;
+}
+
+.doctor-section {
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.doctor-section h1 {
+  font-size: 32px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.doctor-section p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.doctor-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.doctor-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  width: 300px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+}
+
+.doctor-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.doctor-card h3 {
+  font-size: 20px;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.speciality {
+  color: #2563eb;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.rating {
+  color: #facc15;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.details {
+  text-align: left;
+  list-style: none;
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.details li {
+  margin-bottom: 8px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.badge.green {
+  background-color: #10b981;
+}
+
+.badge.yellow {
+  background-color: #f59e0b;
+}
+
+.book-btn {
+  width: 100%;
+  background: linear-gradient(to right, #2563eb, #14b8a6);
+  color: white;
+  border: none;
+  padding: 12px 0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.book-btn:hover {
+  background: linear-gradient(to right, #1e40af, #0d9488);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9fafb;
+}
+
+/* Navbar */
+.navbar {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 30px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+nav i {
+  font-size: 18px;
+  color: #334155;
+  cursor: pointer;
+}
+
+/* Feature Section */
+.features-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 80px 20px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  width: 320px;
+  border-radius: 20px;
+  color: #fff;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.feature-card p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Card Gradient Colors */
+.feature-card.blue {
+  background: linear-gradient(135deg, #0284c7, #06b6d4);
+}
+
+.feature-card.pink {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+}
+/* Sidebar Toggle Icon */
+.menu-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-right: 15px;
+  color: #333;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background: linear-gradient(to bottom right, #d0e8ff, #e6ccff); /* Light blue + lavender */
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* When sidebar is shown */
+.sidebar.show {
+  transform: translateX(0);
+}
+#chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* Chatbot Window */
+#chatbot-window {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 999;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.chat-body {
+  padding: 10px;
+  height: 150px;
+  overflow-y: auto;
+}
+
+#chatbot-window input[type="text"] {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  outline: none;
+}

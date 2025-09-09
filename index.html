@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediQueue 3D</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediQueue 3D</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar hidden">
+    <a href="#">Home</a>
+    <a href="livequeue.html">Live Queue</a>
+    <a href="profile.html">My Profile</a>
+    <a href="notification.html"><i class="fa-regular fa-bell"></i> Notifications</a>
+    <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+    <a href="signup.html" class="login-button">Sign up/Log in</a>
+    <a href="doctorlogin.html" class="login-button">Staff Log in</a>
+    <a href="logout.html" class="login-button">Log Out</a>
+    
+    
+
+  </div>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .slider-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Navigation buttons */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 24px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+ <!-- Chatbot Button -->
+<a id="chatbot-button" href="bot.html">
+  <i class="fas fa-robot"></i>
+</a>
+
+</div>
+
+
+<!-- Chatbot Window -->
+<div id="chatbot-window">
+  <div class="chat-header">Chat with us!</div>
+  <div class="chat-body">
+    <p>Hello! How can I help you?</p>
+  </div>
+  <input type="text" placeholder="Type your message..." />
+</div>
+ 
+   <!-- Header -->
+  <header class="navbar">
+    <i class="fa-solid fa-bars menu-toggle" onclick="toggleSidebar()"></i>
+    <div class="logo">
+      <img src="https://img.icons8.com/color/48/000000/heart-with-pulse.png" alt="logo" width="32">
+      <h2>MediQueue </h2>
+    </div>
+  </header>
+  <div class="slider-container">
+  <div class="slider-track" id="sliderTrack">
+    <div class="slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1681843126728-04eab730febe?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWVkaWNhbCUyMHRlYW18ZW58MHx8MHx8fDA%3D');"></div>
+    <div class="slide" style="background-image: url('https://media.istockphoto.com/id/584204016/photo/medical-team-joining-jigsaw-pieces-in-huddle.jpg?s=612x612&w=0&k=20&c=rPd_3dgQ17F6nvbgloo3fZNc6xIdoylJ2oVmvGXQwhQ=');"></div>
+    <div class="slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG9zcGl0YWx8ZW58MHx8MHx8fDA%3D');"></div>
+    <div class="slide" style="background-image: url('https://t4.ftcdn.net/jpg/01/24/92/83/360_F_124928348_gmLHtItkKNtTTHiNVN2Fz2WjinAZF1jl.jpg');"></div>
+    <div class="slide" style="background-image: url('https://www.shutterstock.com/shutterstock/videos/1109713317/thumb/1.jpg?ip=x480');"></div>
+  </div>
+  <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
+  <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
+</div>
+
+<script>
+  const sliderTrack = document.getElementById('sliderTrack');
+  const slides = document.querySelectorAll('.slide');
+  let currentIndex = 0;
+
+  function moveSlide(direction) {
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+      currentIndex = slides.length - 1;
+    } else if (currentIndex >= slides.length) {
+      currentIndex = 0;
+    }
+
+    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  // Optional: Auto-slide every 5 seconds
+  setInterval(() => moveSlide(1), 5000);
+</script>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+  
+    
+
+
+    <div class="stats-cards">
+      <div class="card blue">
+        <i class="fa-solid fa-user-group"></i>
+        <h2>10,000+</h2>
+        <p>Patients Served</p>
+      </div>
+      <div class="card green">
+        <i class="fa-solid fa-user-doctor"></i>
+        <h2>150+</h2>
+        <p>Doctors Available</p>
+      </div>
+      <div class="card yellow">
+        <i class="fa-solid fa-clock"></i>
+        <h2>15 min</h2>
+        <p>Avg Wait Time</p>
+      </div>
+      <div class="card purple">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <h2>99.9%</h2>
+        <p>Success Rate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Heading -->
+  <section class="doctor-section">
+    <h1>Meet Our Specialists</h1>
+    <p>Book appointments with top-rated doctors in real-time</p>
+
+    <div class="doctor-grid">
+
+      <!-- Doctor 1 -->
+      <div class="doctor-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sarah Johnson">
+        <h3>Dr. Sarah Johnson</h3>
+        <p class="speciality">Cardiologist</p>
+        <p class="rating"><i class="fa-solid fa-star"></i> 4.9</p>
+        <ul class="details">
+          <li>Status: <span class="badge green">Available Today</span></li>
+          <li>Queue: <strong>3 patients</strong></li>
+          <li>Next Available: <strong>2:30 PM</strong></li>
+        </ul>
+        <button class="book-btn" onclick="bookNow('Dr. Sarah Johnson')">Book Appointment</button>
+      </div>
+
+      <!-- Doctor 2 -->
+      <div class="doctor-card">
+        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Dr. Michael Chen">
+        <h3>Dr. Michael Chen</h3>
+        <p class="speciality">Neurologist</p>
+        <p class="rating"><i class="fa-solid fa-star"></i> 4.8</p>
+        <ul class="details">
+          <li>Status: <span class="badge yellow">Available Tomorrow</span></li>
+          <li>Queue: <strong>5 patients</strong></li>
+          <li>Next Available: <strong>9:00 AM</strong></li>
+        </ul>
+        <button class="book-btn" onclick="bookNow('Dr. Sarah Johnson')">Book Appointment</button>
+
+      </div>
+
+      <!-- Doctor 3 -->
+      <div class="doctor-card">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Dr. Emma Williams">
+        <h3>Dr. Emma Williams</h3>
+        <p class="speciality">Pediatrician</p>
+        <p class="rating"><i class="fa-solid fa-star"></i> 4.9</p>
+        <ul class="details">
+          <li>Status: <span class="badge green">Available Today</span></li>
+          <li>Queue: <strong>2 patients</strong></li>
+          <li>Next Available: <strong>1:15 PM</strong></li>
+        </ul>
+        <button class="book-btn" onclick="bookNow('Dr. Sarah Johnson')">Book Appointment</button>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="feature-card blue">
+      <i class="fa-solid fa-user-group fa-2x"></i>
+      <h3>View Live Queue</h3>
+      <p>Track real-time patient queues, estimated wait times, and appointment status updates powered by AWS IoT.</p>
+    </div>
+
+    <div class="feature-card pink">
+      <i class="fa-regular fa-calendar-check fa-2x"></i>
+      <h3>Manage Appointments</h3>
+      <p>View your appointment history, reschedule visits, and receive automated notifications via AWS SNS.</p>
+    </div>
+  </section>
+  <script>
+  function bookNow(doctorName) {
+    window.location.href = `book-appointment.html?doctor=${encodeURIComponent(doctorName)}`;
+  }
+</script>
+
+<section id="about" class="about-section" style="padding: 50px; background-color: #f9f9f9;">
+  <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">About MediQueueX Hospital</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6; color: #444;">
+      <strong>MediQueueX Hospital</strong> is a leading healthcare institution committed to delivering world-class medical care with compassion and excellence. Since our founding, we have consistently placed patients at the heart of everything we do — providing personalized treatment, cutting-edge technology, and a team of expert doctors and nurses dedicated to your well-being.
+    </p>
+
+    <p style="font-size: 1.1rem; line-height: 1.6; color: #444; margin-top: 20px;">
+      Our mission is to make high-quality healthcare accessible and efficient for everyone. With advanced diagnostic tools, 24/7 emergency care, and seamless appointment systems, we ensure a smooth and reliable patient experience.
+    </p>
+
+    <p style="font-size: 1.1rem; line-height: 1.6; color: #444; margin-top: 20px;">
+      At MediQueueX, we believe in innovation and integrity. Our specialized departments and digital tools empower both patients and staff, making healthcare smarter and more connected than ever.
+    </p>
+  </div>
+</section>
+<section id="contact" style="padding: 50px; background-color: #eef2f7;">
+  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Contact Us</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+      <div style="font-size: 1.1rem;">
+        <strong>📍 Address:</strong><br />
+        MediQueueX Hospital,<br />
+        123 HealthCare Avenue,<br />
+        Jubilee Hills, Hyderabad, Telangana - 500033
+      </div>
+
+      <div style="font-size: 1.1rem;">
+        <strong>📧 Email:</strong><br />
+        <a href="mailto:info@mediqueuex.com">info@mediqueuex.com</a><br />
+        <a href="mailto:support@mediqueuex.com">support@mediqueuex.com</a>
+      </div>
+
+      <div style="font-size: 1.1rem;">
+        <strong>📞 Phone:</strong><br />
+        +91 98765 43210<br />
+        +91 91000 12345
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

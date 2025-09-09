@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings | Hospital Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
+    <h2 class="text-2xl font-bold text-center text-blue-600 mb-6">Settings</h2>
+
+    <!-- Change Password -->
+    <section class="mb-8">
+      <h3 class="font-semibold mb-2">Change Password</h3>
+      <input type="password" placeholder="Current Password" class="w-full p-2 border rounded mb-2">
+      <input type="password" placeholder="New Password" class="w-full p-2 border rounded mb-2">
+      <input type="password" placeholder="Confirm New Password" class="w-full p-2 border rounded mb-4">
+      <button class="bg-blue-500 text-white px-4 py-2 rounded">Update Password</button>
+    </section>
+
+    <!-- Notifications -->
+    <section class="mb-8">
+      <h3 class="font-semibold mb-2">Notifications</h3>
+      <label class="block mb-1"><input type="checkbox" class="mr-2"> Email Notifications</label>
+      <label class="block mb-1"><input type="checkbox" class="mr-2"> SMS Notifications</label>
+      <label class="block mb-1"><input type="checkbox" class="mr-2"> Appointment Reminders</label>
+    </section>
+
+    <!-- Language and Preferences -->
+    <section class="mb-8">
+      <h3 class="font-semibold mb-2">Preferences</h3>
+      <label class="block mb-2">Language:
+        <select class="w-full p-2 border rounded">
+          <option>English</option>
+          <option>Hindi</option>
+          <option>Telugu</option>
+        </select>
+      </label>
+      <label class="block mb-2">Theme:
+        <select class="w-full p-2 border rounded">
+          <option>System Default</option>
+          <option>Light</option>
+          <option>Dark</option>
+        </select>
+      </label>
+      <label class="block mb-2">Time Zone:
+        <select class="w-full p-2 border rounded">
+          <option>IST (India Standard Time)</option>
+          <option>GMT</option>
+          <option>PST</option>
+        </select>
+      </label>
+    </section>
+
+    <!-- Profile Customization -->
+    <section class="mb-8">
+      <h3 class="font-semibold mb-2">Profile</h3>
+      <input type="text" placeholder="Full Name" class="w-full p-2 border rounded mb-2">
+      <input type="email" placeholder="Email Address" class="w-full p-2 border rounded mb-2">
+      <input type="tel" placeholder="Phone Number" class="w-full p-2 border rounded mb-2">
+      <input type="file" class="mb-2">
+    </section>
+
+    <!-- Security Settings -->
+    <section class="mb-8">
+      <h3 class="font-semibold mb-2">Security Settings</h3>
+      <label class="block mb-1"><input type="checkbox" class="mr-2"> Enable Two-Factor Authentication</label>
+      <button class="text-blue-600 underline">View Login Activity</button>
+    </section>
+
+    <!-- Medical Preferences -->
+    <section class="mb-8">
+      <h3 class="font-semibold mb-2">Medical Preferences</h3>
+      <input type="text" placeholder="Preferred Hospital Branch" class="w-full p-2 border rounded mb-2">
+      <input type="text" placeholder="Preferred Doctor" class="w-full p-2 border rounded mb-2">
+      <input type="text" placeholder="Health Insurance Provider" class="w-full p-2 border rounded mb-2">
+      <input type="text" placeholder="Emergency Contact Info" class="w-full p-2 border rounded mb-2">
+    </section>
+
+    <!-- Account Management -->
+    <section class="mb-8">
+      <h3 class="font-semibold mb-2">Account Management</h3>
+      <button class="text-yellow-600 underline mb-2">Deactivate Account</button><br>
+      <button class="text-red-600 underline mb-2">Delete Account Permanently</button><br>
+      <button class="text-blue-600 underline">Export Personal Data</button>
+    </section>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <div class="profile-wrapper">
+    <div class="profile-card">
+      <h2>🩺 Patient Profile</h2>
+      <p class="subtitle">Fill in your details for hospital consultation</p>
+
+      <form id="profileForm">
+        <div class="input-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age" required>
+          </div>
+          <div class="input-group">
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+              <option value="" disabled selected>Select gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" placeholder="Enter height" required>
+          </div>
+          <div class="input-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" placeholder="Enter weight" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="bloodgroup">Blood Group</label>
+          <input type="text" id="bloodgroup" placeholder="e.g. O+, A+, B-" required>
+        </div>
+
+        <div class="input-group">
+          <label for="address">Address</label>
+          <textarea id="address" rows="3" placeholder="Enter your address" required></textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="emergency">Emergency Contact</label>
+          <input type="tel" id="emergency" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" required>
+        </div>
+
+        <button type="submit" class="save-btn">💾 Save Profile</button>
+        <p class="footer-text">
+          <a href="index.html">← Back to Home</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
